@@ -1,0 +1,56 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='/')
+    title ZUMI
+    link(rel='stylesheet', href='/boot/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/boot/css/animate.css')
+    link(rel='stylesheet', href='/style.css')
+ 
+  body
+    row
+     .container
+      nav.navbar.navbar-default
+       .container-fluid
+   
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') ZUMI
+   
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/dashboard-logout') Logout
+            li
+      
+      .col-md-12#header
+       .page-header 
+        h3  #{users.firstname} #{users.lastname}
+        a.btn.btn-primary#goback(href='/dashboard') Back
+       .col-md-4
+       .col-md-4
+            != messages('message', locals)
+            if(errors)
+               each error in errors
+                div.alert.alert-danger=error.msg
+            form(action="/direct-message/#{users.id}", method="POST")
+             label(for="name") Phone Number:
+             input.form-control(type="text", name="phone", placeholder="Enter Phone Number", value=users.phone)
+             br
+             label(for='name') Message:
+             textarea.form-control(type='text', placeholder='Message', rows='8', name="body")
+             br
+             button.btn.btn-primary#submit-btn Send Message
+       .col-md-4
+             
+   
+    script(src='./boot/js/jquery-1.12.4.min.js')
+    script(src='./boot/js/bootstrap.min.js')

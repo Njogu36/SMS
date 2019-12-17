@@ -1,0 +1,68 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='/')
+    title ALX-SMS
+    link(rel='stylesheet', href='/boot/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/boot/css/animate.css')
+    link(rel='stylesheet', href='/style.css')
+ 
+  body
+    row
+     .container
+      nav.navbar.navbar-default
+       .container-fluid
+   
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#')
+           img(src="./images/img1.jpeg" ,width="40px")
+   
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+             a(href='/') Home
+            li
+              a(href='/login') Login
+           
+      
+      .col-md-12#header
+       != messages('message', locals)
+       .page-header 
+        h3 Register ALX-SMS
+       .col-md-4
+       .col-md-4
+        if(errors)
+           each error in errors
+            div.alert.alert-danger=error.msg
+        form(action="/user-register", method="POST")
+         label(for="name") Firstname*:
+         input.form-control(type="text", name="firstname", placeholder="Enter Firstname")
+         br
+         label(for="name") Lastname*:
+         input.form-control(type="text", name="lastname", placeholder='Enter Lastname')
+         br
+         label(for="name") Cohort*:
+         select.form-control(name="cohort")
+          each cohort in cohorts
+              option #{cohort.cohort}
+             
+         br
+         label(for="name") Phone Number*:
+         .disc Kindly start your phone number with a 0, not +254
+         input.form-control(type="text", name="phone", placeholder='Enter Phone Number e.g 0799*******')
+         br
+         button.btn.btn-primary#submit-btn Register
+       .col-md-4
+             
+   
+    script(src='./boot/js/jquery-1.12.4.min.js')
+    script(src='./boot/js/bootstrap.min.js')

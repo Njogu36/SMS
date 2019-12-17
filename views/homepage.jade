@@ -1,0 +1,92 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-12/512/SMS-Message-icon.png')
+    title Elite-SMS Homepage
+    link(rel='stylesheet', href='/boot/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/boot/css/animate.css')
+    link(rel='stylesheet', href='/style.css')
+    style.
+      @media (max-width: 767.98px) { 
+          #smsImage
+          {
+              display: none;
+          }
+          #docum
+          {
+            margin-top:10px
+          }
+          #elite
+          {
+            margin-top:3px;
+          }
+          h1
+          {
+            font-size:2.0em;
+          }
+      }
+      .navbar-brand
+       {
+         border:2px solid black;
+         color:black;
+         font-weight:bolder
+         
+       }
+       .navbar-default
+       {
+         padding-top:10px;
+         padding-bottom:10px;
+         padding-left:30px;
+        
+       }
+
+     
+  body
+  
+    .container-fluid
+      nav.navbar.navbar-default
+       .container-fluid
+   
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#')  Elite-SMS
+   
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+             a(href='/') Home
+           
+            li
+             a(href="/documentation") Documentation
+            li
+             a(href='/login') Log In
+            
+      
+      .col-md-12#headerImage
+       #header-content
+         .col-md-1
+         .col-md-10
+          .col-md-6#elite
+            h1 Elite-SMS
+            p This is a simple platform that helps small businesses in kenya connect to their customers through the use of mobile SMS or school institutions to send exam results and fee balances to parents through mobile SMS.
+            a(href="/signup").btn.btn-primary Get started now
+            &nbsp;
+            a(href="/documentation").btn.btn-info#docum Documentation
+          .col-md-6
+           img(src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-12/512/SMS-Message-icon.png", alt="", id='smsImage',width='50%')
+         
+         .col-md-1
+        
+      
+             
+   
+    script(src='./boot/js/jquery-1.12.4.min.js')
+    script(src='./boot/js/bootstrap.min.js')

@@ -1,0 +1,151 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-12/512/SMS-Message-icon.png')
+    title Elite-SMS Payments
+    // Custom fonts for this template
+    link(href='/vendor/fontawesome-free/css/all.min.css', rel='stylesheet', type='text/css')
+    // Page level plugin CSS
+   
+    link(href='/vendor/datatables/dataTables.bootstrap4.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css')
+    
+    // Custom styles for this template
+    link(href='/css/sb-admin.css', rel='stylesheet')
+    style.
+      #test
+      {
+        display:none
+      }
+      #hide
+      {
+        display:none
+      }
+
+  body#page-top
+    nav.navbar.navbar-expand.navbar-dark.bg-dark.static-top
+      a.navbar-brand.mr-1(href='/ES-admin/dashboard') Elite-SMS Admin
+      // Navbar Search
+      // Navbar
+    #wrapper
+      // Sidebar
+      ul.sidebar.navbar-nav
+        li.nav-item.active
+          a.nav-link(href='/ES-admin/dashboard')
+            i.fas.fa-home
+            &nbsp;
+            span Dashboard
+        li.nav-item.active
+          a.nav-link(href='/ES-admin/users')
+            i.fas.fa-fw.fa-user
+            &nbsp;
+            span Users
+        
+      
+        li.nav-item
+          a.nav-link(href='/ES-admin/payments')
+            i.fas.fa-fw.fa-key
+            &nbsp;
+            span Payments
+       
+      
+        
+      
+        li.nav-item
+          a#erase.nav-link(href='/ES-admin/dashboard-logout')
+            i.fas.fa-fw.fa-sign-out-alt
+            &nbsp;
+            span Logout
+      #content-wrapper
+        .container-fluid
+          // Breadcrumbs
+          
+        
+          ol.breadcrumb
+            li.breadcrumb-item
+              a(href='/ES-admin/payments') Payments
+         
+            li.breadcrumb-item.active Overview
+          != messages('./message', locals)
+          #table
+           table.table#table_id.display
+            thead
+              tr
+                th
+                th Company Name
+                th Fullname
+                th Email
+                th Amount
+                th Messages Sent
+                th
+              
+            tbody
+             each user in users
+             
+               tr
+                td
+                 if  user.amount < 2500
+                  i.fas.fa-dot-circle(style='color:green')
+                 if user.amount > 2501 
+                  i.fas.fa-dot-circle(style='color:red')
+                td #{user.companyname}
+                td #{user.fullname}
+                td #{user.email}
+                td #{user.amount}
+                td #{user.messages}
+                td
+                 a(href="/ES-admin/accountDetails/#{user.id}").btn.btn-success Account Details
+               
+                 
+               
+          // Area Chart Example
+          // DataTables Example
+          // /.container-fluid
+          // Sticky Footer
+          footer.sticky-footer
+            .container.my-auto
+              .copyright.text-center.my-auto
+                span Copyright © Elite-SMS 2019
+        // /.content-wrapper
+        // /#wrapper
+        // Scroll to Top Button
+        a.scroll-to-top.rounded(href='#page-top')
+          i.fas.fa-angle-up
+        // Logout Modal
+        #logoutModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header
+                h5#exampleModalLabel.modal-title Ready to Leave?
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+              .modal-body Select "Logout" below if you are ready to end your current session.
+              .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+                a.btn.btn-primary(href='login.html') Logout
+        // Bootstrap core JavaScript
+        script(src='/vendor/jquery/jquery.min.js')
+        script(src='/vendor/bootstrap/js/bootstrap.bundle.min.js')
+        // Core plugin JavaScript
+        script(src='/vendor/jquery-easing/jquery.easing.min.js')
+        // Page level plugin JavaScript
+        script(src='/vendor/chart.js/Chart.min.js')
+        script(src='/vendor/datatables/jquery.dataTables.js')
+        script(src='/vendor/datatables/dataTables.bootstrap4.js')
+        // Custom scripts for all pages
+        script(src='/js/sb-admin.min.js')
+        // Demo scripts for this page
+        script(src='/js/demo/datatables-demo.js')
+        script(src='/js/demo/chart-area-demo.js')
+        script(type='text/javascript', charset='utf8', src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js')
+        script.
+          $(document).ready( function () {
+             $('#table_id').DataTable();
+          })
+     
+
+

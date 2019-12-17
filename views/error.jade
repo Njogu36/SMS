@@ -1,0 +1,184 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-12/512/SMS-Message-icon.png')
+    title Elite-SMS Error
+    // Custom fonts for this template
+    link(href='/vendor/fontawesome-free/css/all.min.css', rel='stylesheet', type='text/css')
+    // Page level plugin CSS
+    link(href='/vendor/datatables/dataTables.bootstrap4.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='/css/sb-admin.css', rel='stylesheet')
+    style.
+      #test
+      {
+        display:none
+      }
+      #hide
+      {
+        display:none
+      }
+
+  body#page-top
+    nav.navbar.navbar-expand.navbar-dark.bg-dark.static-top
+      a.navbar-brand.mr-1(href='/dashboard') Elite-SMS
+      // Navbar Search
+      // Navbar
+    #wrapper
+      // Sidebar
+      ul.sidebar.navbar-nav
+        li.nav-item.active
+          a.nav-link(href='/dashboard')
+            i.fas.fa-home
+            &nbsp;
+            span Dashboard
+        li.nav-item.active
+          a.nav-link(href='/groups')
+            i.fas.fa-fw.fa-users
+            &nbsp;
+            span Groups
+       
+        li.nav-item
+          a.nav-link(href='/recurrence')
+            i.fas.fa-fw.fa-clock
+            &nbsp;
+            span Recurrence
+        li.nav-item
+          a.nav-link(href='/credentials')
+            i.fas.fa-fw.fa-key
+            &nbsp;
+            span Credentials
+        li.nav-item
+          a.nav-link(href='/templates')
+            i.fas.fa-book-open
+            &nbsp;
+            span SMS Templates
+       
+        
+        li.nav-item
+          a.nav-link(href='/school-exam')
+         
+            i.fab.fa-elementor
+            &nbsp;
+            span Send Exam Results
+        li.nav-item
+          a.nav-link(href='/school-balance')
+         
+            i.fas.fa-balance-scale
+            &nbsp;
+            span Send Fee Balances
+        li.nav-item
+          a.nav-link(href='/history')
+            i.fas.fa-fw.fa-history
+            &nbsp;
+            span History
+        
+        li.nav-item
+          a#erase.nav-link(href='/dashboard-logout')
+            i.fas.fa-fw.fa-sign-out-alt
+            &nbsp;
+            span Logout
+      #content-wrapper
+        .container-fluid
+         div(style='text-align:center;margin-bottom:100px')
+            
+            
+            img(src="/images/ss.gif", alt="",width='60%')
+            br
+            h4 404 Error
+            a(href="/dashboard").btn.btn-primary Go back home
+            
+            
+         
+        footer.sticky-footer
+            .container.my-auto
+              .copyright.text-center.my-auto
+                span Copyright © Elite-SMS 2019
+        // /.content-wrapper
+        // /#wrapper
+        // Scroll to Top Button
+        a.scroll-to-top.rounded(href='#page-top')
+          i.fas.fa-angle-up
+        // Logout Modal
+        #logoutModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header
+                h5#exampleModalLabel.modal-title Ready to Leave?
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+              .modal-body Select "Logout" below if you are ready to end your current session.
+              .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+                a.btn.btn-primary(href='login.html') Logout
+        // Bootstrap core JavaScript
+        script(src='/vendor/jquery/jquery.min.js')
+        script(src='/vendor/bootstrap/js/bootstrap.bundle.min.js')
+        // Core plugin JavaScript
+        script(src='/vendor/jquery-easing/jquery.easing.min.js')
+        // Page level plugin JavaScript
+        script(src='/vendor/chart.js/Chart.min.js')
+        script(src='/vendor/datatables/jquery.dataTables.js')
+        script(src='/vendor/datatables/dataTables.bootstrap4.js')
+        // Custom scripts for all pages
+        script(src='/js/sb-admin.min.js')
+        // Demo scripts for this page
+        script(src='/js/demo/datatables-demo.js')
+        script(src='/js/demo/chart-area-demo.js')
+        script(src='https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js')
+
+        script.
+          const API_publicKey = "FLWPUBK-2b529d6ba589b3559aa553234359339f-X";
+          const email = document.getElementById("email").value;
+          const amount = document.getElementById("phone").value;
+          function payWithRave() {
+         
+          var x = getpaidSetup({
+          PBFPubKey: API_publicKey,
+          customer_email:email,
+          amount: amount,
+         
+          currency: "KES",
+          country:'KE',
+          txref: "rave-123456",
+          meta: [{
+          metaname: "flightID",
+          metavalue: "AP1234"
+          }],
+          onclose: function() {},
+          callback: function(response) {
+          var txref = response.tx.txRef; // collect txRef returned and pass to a 					server page to complete status check.
+          console.log("This is the response returned after a charge", response);
+          if (
+          response.tx.chargeResponseCode == "00" ||
+          response.tx.chargeResponseCode == "0"
+          ) {
+          // redirect to a success page
+        
+          fetch('/updatePayment',{
+            method:'POST',
+            headers:{
+              'Accept':'application/json',
+              'Content-Type':'application/json'
+            },
+            body:JSON.stringify(response.data)
+          }).then((res)=>res.json()).then((response)=>{
+            if(response.success ===true)
+            {
+              console.log('Success')
+              window.location.replace('/dashboard')
+            }
+          })
+          } else {
+          // redirect to a failure page.
+          }
+          x.close(); // use this to close the modal immediately after payment.
+          }
+          });
+          }
+
+

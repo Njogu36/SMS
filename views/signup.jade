@@ -1,0 +1,105 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-12/512/SMS-Message-icon.png')
+    title Elite-SMS Signup
+    link(rel='stylesheet', href='/boot/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/boot/css/animate.css')
+    link(rel='stylesheet', href='/style.css')
+    style.
+     #header-content
+     {
+       margin-top:20px;
+     }
+     #login
+     {
+       margin-bottom:30px
+     }
+     #submit-btn 
+     {
+      width: 100%;
+      padding: 20px;
+      margin-bottom: 9px;
+      }
+       .navbar-brand
+       {
+         border:2px solid black;
+         color:black;
+         font-weight:bolder
+         
+       }
+       .navbar-default
+       {
+         padding-top:10px;
+         padding-bottom:10px;
+         padding-left:30px;
+        
+       }
+ 
+  body
+  
+    .container-fluid
+      nav.navbar.navbar-default
+       .container-fluid
+   
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#')  Elite-SMS
+   
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+             a(href='/') Home
+           
+            li
+             a(href="/documentation") Documentation
+            li
+             a(href='/login') Log In
+            
+      
+      .col-md-12#headerImage1
+       #header-content
+         .col-md-4
+         .col-md-4#login
+           .jumbotron
+            h4 Register to Elite-SMS
+            != messages('message', locals)
+            form(action="/admin-register", method="POST")
+              label(for='name') Company name*
+              input.form-control(type='text', name='company', placeholder='Enter your company name',required)
+              br
+              label(for='name') Full name*
+              input.form-control(type='text', name='fullname', placeholder='Enter your fullname',required)
+              br
+              label(for="name") Username*
+              input.form-control(type="text", name="username", placeholder="Enter Username",required)
+              br
+              label(for="name") Email Address*
+              input.form-control(type="email", name="email", placeholder="Enter Email Address",required)
+              br
+              label(for="name") Password*:
+              input.form-control(type="password", name="password", placeholder="Enter Password",required)
+              br
+              label(for="name") Confirm Password*:
+              input.form-control(type="password", name="password2", placeholder="Confirm Password",required)
+              br
+              button.btn.btn-primary#submit-btn Sign Up
+             
+              span.desc Already a member, 
+                a(href="/login") Kindly Login.
+            
+         .col-md-4
+        
+      
+             
+   
+    script(src='./boot/js/jquery-1.12.4.min.js')
+    script(src='./boot/js/bootstrap.min.js')

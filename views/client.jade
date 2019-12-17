@@ -1,0 +1,125 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='/')
+    title ALX-SMS
+    link(rel='stylesheet', href='../boot/css/bootstrap.min.css')
+    link(rel='stylesheet', href='../boot/css/animate.css')
+    link(rel='stylesheet', href='../style.css')
+    style.
+     #goback {
+    
+     }
+ 
+  body
+    row
+     .container
+      nav.navbar.navbar-default
+       .container-fluid
+   
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') ZUMI
+   
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/dashboard-logout') Logout
+            li
+      
+      .col-md-12#header
+       != messages('message', locals)
+       .col-md-12
+        .page-header
+         h2 #{cohorts.cohort}
+    
+       .col-md-12#bulk
+          button.btn.btn-info(data-toggle='modal',data-target='#bulksms', disabled) Send Bulk SMS [#{cohorts.cohort}]
+          &nbsp;&nbsp;
+          a.btn.btn-primary#goback(href='/dashboard') Back
+       .col-md-12
+         input.form-control#myInput(type='search', placeholder='Search for students by their firstname only...',onkeyup="myFunction()")
+       .col-md-12.table-responsive
+    
+         table.table.table-striped#myTable
+             thead
+              th Firstname
+              th Lastname
+              th Phone Number
+              th Cohort
+              th Actions
+             tbody
+             each user in users
+                if user.cohort == cohorts.cohort
+                 tr
+                   td #{user.firstname}
+                   td #{user.lastname}
+                   td #{user.phone}
+                   td #{user.cohort}
+                   td 
+                    a.btn.btn-default(href="/direct-message/#{cohorts.id}/#{user.id}") Direct Message
+                    &nbsp;
+                    a.btn.btn-info(href="/edit-student/#{cohorts.id}/#{user.id}") Edit
+                    &nbsp;
+                    a.btn.btn-danger(href='/delete-user/#{cohorts.id}/#{user.id}') Delete Client
+              
+       #bulksms.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+                .modal-dialog(role='document')
+                    .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') ×
+                        h4#myModalLabel.modal-title Add New Message[#{cohorts.cohort}].
+                    .modal-body
+                            if(errors)
+                                   each error in errors
+                                    div.alert.alert-danger=error.msg
+                            form.form-horizontal(action='/bulk-sms2/#{cohorts.id}', method='post')
+                               
+                                .col-md-12
+                                     .form-group
+                                         label(for="name") Cohort:
+                                         input.form-control(type="text", name="cohort", placeholder="Enter Phone Number", value=cohorts.cohort)
+                                     .form-group
+                                        label(for='name') Message:
+                                        textarea.form-control(type='text', placeholder='Message', rows='8', name="body")
+                                
+                            
+                                button#signsubmit.btn.btn-primary(type='submit') Send Message
+                    .modal-footer
+                        button.btn.btn-default(type='button', data-dismiss='modal') Close
+         
+      
+        
+             
+   
+    script(src='../boot/js/jquery-1.12.4.min.js')
+    script(src='../boot/js/bootstrap.min.js')
+    script.
+      function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+      } else {
+      tr[i].style.display = "none";
+      }
+      }
+      }
+      }

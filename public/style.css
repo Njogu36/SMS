@@ -1,0 +1,175 @@
+h3 {
+    text-align: center;
+    color: #691414;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 2.4em;
+    margin-top: 40px;
+}
+.container-fluid
+{
+    padding-left:0px;
+    padding-right:0px;
+}
+.sidebar
+{
+    background-color: #00bfd8;
+}
+h1{
+    color:white;
+    font-size: 4.0em;
+}
+p{
+    color:white;
+    font-size: 1.0em;
+}
+#smsImage
+{
+    text-align:center
+}
+#header-content
+{
+    margin-top:80px
+}
+.page-header
+{
+    color:rgb(34, 32, 32)
+}
+#get-started
+{
+    margin-bottom:50px;
+}
+#login .page-header
+{
+    color:black
+}
+#sideMenu
+{
+    background-color: #212529;
+    height:800px;
+    position:fixed;
+    margin-left:-20px;
+   
+}
+#table
+{
+    margin-top:20px;
+}
+#doc-content
+{
+    float:right;
+    
+}
+#doc-content .page-header
+{
+
+    color:black;
+    font-size:1.8em;
+}
+#doc-content p
+{
+
+    color:black;
+    font-size:1.1em;
+}
+.container-fluid .navbar-header
+{
+    margin-bottom: 5px;
+}
+#headerImage
+{
+    background-color: #212529;
+    height:900px;
+    margin-top:0px;
+    position: fixed;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    top:50px;
+
+}
+#headerImage1
+{
+
+ 
+    margin-top:0px;
+  
+}
+.navbar-default
+{
+    padding-left:15px;
+    padding-right:15px; 
+    border-radius:0;
+    margin-bottom:0px;
+    padding-left:30px;
+    position:relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index:9;
+    background-color: whitesmoke;
+}
+.navbar-brand {
+    margin-top: -10px;
+}
+body {
+    font-family: monospace;
+}
+#submit-btn {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+#bulk .btn-primary {
+    margin-bottom: 20px;
+    float: left;
+    padding: 10px;
+}
+.navbar-brand {
+    margin-top: 2px;
+}
+#myTable {
+    margin-top: 10px;
+}
+#myInput {
+    margin-bottom: 20px;
+}
+.modal-dialog {
+    background-color: white
+}
+#bulk .btn-info {
+    margin-bottom: 20px;
+}
+.client {
+    margin-bottom: 20px;
+}
+#signsubmit {
+    width: 100%;
+    padding: 10px;
+}
+#goback {
+    margin-right: 20px;
+}
+#btnDelete {
+    float: right;
+}
+.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    #smsImage
+{
+    display: none;
+}
+ }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #smsImage
+    {
+        display: none;
+    }
+ }
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) { }

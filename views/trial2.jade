@@ -1,0 +1,102 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Elite-SMS Dashboard
+    // Custom fonts for this template
+    link(href='/vendor/fontawesome-free/css/all.min.css', rel='stylesheet', type='text/css')
+    // Page level plugin CSS
+    link(href='/vendor/datatables/dataTables.bootstrap4.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='/css/sb-admin.css', rel='stylesheet')
+  body#page-top
+    nav.navbar.navbar-expand.navbar-dark.bg-dark.static-top
+      a.navbar-brand.mr-1(href='index.html') Elite-SMS
+      // Navbar Search
+      // Navbar
+    #wrapper
+      // Sidebar
+      ul.sidebar.navbar-nav
+        li.nav-item.active
+          a.nav-link(href='index.html')
+            i.fas.fa-fw.fa-user
+            span Customers
+        li.nav-item
+          a.nav-link(href='credentials.html')
+            i.fas.fa-fw.fa-key
+            span Credentials
+        li.nav-item
+          a.nav-link(href='recurrence.html')
+            i.fas.fa-fw.fa-clock
+            span Recurrence
+        li.nav-item
+          a#erase.nav-link(href='#')
+            i.fas.fa-fw.fa-sign-out-alt
+            span Logout
+      #content-wrapper
+        .container-fluid
+          // Breadcrumbs
+          ol.breadcrumb
+            li.breadcrumb-item
+              a(href='#') Customers
+            li.breadcrumb-item.active Overview
+          // Buttons
+          #customerButtons
+            button#addCustomer.btn.btn-dark(type='button') Add a customer
+            button#import.btn.btn-dark(type='button') Import
+            button#api.btn.btn-dark(type='button') API
+            p#userDetails
+          #continue.row(style='display:none')
+            .col
+            .col(style='margin-top:180px')
+              p(style='font-weight:bolder;color:black;opacity:0.7;font-size:2.0em;text-align:center') Please log in to continue...
+            .col
+          #connection.row(style='display:none')
+            .col
+            .col(style='margin-top:180px')
+              p(style='font-weight:bolder;color:black;opacity:0.7;font-size:2.0em;text-align:center') Please connect to the internet...
+            .col
+          // Icon Cards
+          // Area Chart Example
+          // DataTables Example
+          // /.container-fluid
+          // Sticky Footer
+          footer.sticky-footer
+            .container.my-auto
+              .copyright.text-center.my-auto
+                span Copyright © Elite-SMS 2019
+        // /.content-wrapper
+        // /#wrapper
+        // Scroll to Top Button
+        a.scroll-to-top.rounded(href='#page-top')
+          i.fas.fa-angle-up
+        // Logout Modal
+        #logoutModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header
+                h5#exampleModalLabel.modal-title Ready to Leave?
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+              .modal-body Select "Logout" below if you are ready to end your current session.
+              .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+                a.btn.btn-primary(href='login.html') Logout
+        // Bootstrap core JavaScript
+        script(src='/vendor/jquery/jquery.min.js')
+        script(src='/vendor/bootstrap/js/bootstrap.bundle.min.js')
+        // Core plugin JavaScript
+        script(src='/vendor/jquery-easing/jquery.easing.min.js')
+        // Page level plugin JavaScript
+        script(src='/vendor/chart.js/Chart.min.js')
+        script(src='/vendor/datatables/jquery.dataTables.js')
+        script(src='/vendor/datatables/dataTables.bootstrap4.js')
+        // Custom scripts for all pages
+        script(src='/js/sb-admin.min.js')
+        // Demo scripts for this page
+        script(src='/js/demo/datatables-demo.js')
+        script(src='/js/demo/chart-area-demo.js')

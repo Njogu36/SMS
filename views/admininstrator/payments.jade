@@ -1,0 +1,142 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-12/512/SMS-Message-icon.png')
+ 
+    title Elite-SMS Admin Dashboard
+    // Custom fonts for this template
+    link(href='/vendor/fontawesome-free/css/all.min.css', rel='stylesheet', type='text/css')
+    // Page level plugin CSS
+    link(href='/vendor/datatables/dataTables.bootstrap4.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css')
+    
+    // Custom styles for this template
+    link(href='/css/sb-admin.css', rel='stylesheet')
+    style.
+      #table
+      {
+        margin-top:50px
+      }
+      #sendBulk
+      {
+        float:right
+      }
+      .fa-trash{
+        color:red
+      }
+      #tr{
+        color:white
+      }
+      #content-wrapper
+      {
+         margin-bottom:100px;
+      }
+  body#page-top
+    nav.navbar.navbar-expand.navbar-dark.bg-dark.static-top
+      a.navbar-brand.mr-1(href='/ES-admin/dashboard') Elite-SMS Admin
+      // Navbar Search
+      // Navbar
+    #wrapper
+      // Sidebar
+      ul.sidebar.navbar-nav
+        li.nav-item.active
+          a.nav-link(href='/ES-admin/dashboard')
+            i.fas.fa-home
+            &nbsp;
+            span Dashboard
+        li.nav-item.active
+          a.nav-link(href='/ES-admin/users')
+            i.fas.fa-fw.fa-user
+            &nbsp;
+            span Users
+        
+      
+        li.nav-item
+          a.nav-link(href='/ES-admin/payments')
+            i.fas.fa-fw.fa-key
+            &nbsp;
+            span Payments
+       
+      
+        
+      
+        li.nav-item
+          a#erase.nav-link(href='/ES-admin/dashboard-logout')
+            i.fas.fa-fw.fa-sign-out-alt
+            &nbsp;
+            span Logout
+      #content-wrapper
+        .container-fluid
+          // Breadcrumbs
+          .row
+            .col
+               
+            
+               
+            
+          hr
+          ol.breadcrumb
+            li.breadcrumb-item
+              a(href='/ES-admin/payments') Payments
+            li.breadcrumb-item.active Overview
+          != messages('./message', locals)
+          #table
+           table.table#table_id.display
+            thead
+              tr
+                th CustomerID
+                th Email
+                th Currency
+                th Amount
+                th Status
+            
+              
+            tbody
+             each payment in payments
+             
+               tr
+                
+                td #{payment.customerID}
+                td #{payment.email}
+                td #{payment.currency}
+                td #{payment.amount}
+                td #{payment.status}
+              
+                 
+        
+        // Bootstrap core JavaScript
+        script(src='/vendor/jquery/jquery.min.js')
+        script(src='/vendor/bootstrap/js/bootstrap.bundle.min.js')
+        // Core plugin JavaScript
+        script(src='/vendor/jquery-easing/jquery.easing.min.js')
+        // Page level plugin JavaScript
+        script(src='/vendor/chart.js/Chart.min.js')
+        script(src='/vendor/datatables/jquery.dataTables.js')
+        script(src='/vendor/datatables/dataTables.bootstrap4.js')
+        // Custom scripts for all pages
+        script(src='/js/sb-admin.min.js')
+        script(type='text/javascript', charset='utf8', src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js')
+
+    
+        // Demo scripts for this page
+        script(src='/js/demo/datatables-demo.js')
+        script(src='/js/demo/chart-area-demo.js')
+        script.
+         $(document).ready( function () {
+          $('#table_id').DataTable();
+          $('#examplModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+          })
+         
+         });
+

@@ -1,0 +1,98 @@
+doctype html
+html(lang='en')
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    // SEO Meta Tags
+    meta(name='description', content='Create a stylish landing page for your business startup and get leads for the offered services with this free HTML landing page template.')
+    meta(name='author', content='Inovatik')
+    // OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+
+    meta(property='og:site_name', content='')
+    // website name
+    meta(property='og:site', content='')
+    // website link
+    meta(property='og:title', content='')
+    // title shown in the actual shared post
+    meta(property='og:description', content='')
+    // description shown in the actual shared post
+    meta(property='og:image', content='')
+    // image link, make sure it's jpg
+    meta(property='og:url', content='')
+    // where do you want your post to link to
+    meta(property='og:type', content='article')
+    // Website Title
+    title Elite-SMS Customer Engagement Platform Login Page
+    // ===============================================================================================
+    link(rel='icon', type='image/png', href='/Homepage/images/favicon.png')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='/Login/vendor/bootstrap/css/bootstrap.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='/Login/vendor/animate/animate.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='/Login/vendor/css-hamburgers/hamburgers.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='/Login/vendor/select2/select2.min.css')
+    // ===============================================================================================
+    link(rel='stylesheet', type='text/css', href='/Login/css/util.css')
+    link(rel='stylesheet', type='text/css', href='/Login/css/main.css')
+    // ===============================================================================================
+    style.
+     .alert-error
+     {
+         color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+     }
+    
+   
+  body
+    .limiter
+      .container-login100
+        .wrap-login100
+          .login100-pic.js-tilt(data-tilt='')
+            img(src='/Login/images/img-01.png', alt='IMG',width='95%')
+            
+          
+          form.login100-form.validate-form(action="/admin-login", method="POST")
+            != messages('message', locals)
+            div(style='text-align:center;margin-bottom:40px')
+              img(src='/Homepage/images/logo.png', alt='alternative')
+              
+            .wrap-input100.validate-input(data-validate='Username is required')
+              input.input100(type='text', name='username', placeholder='username')
+              span.focus-input100
+              span.symbol-input100
+                i.fa.fa-user(aria-hidden='true')
+            .wrap-input100.validate-input(data-validate='Password is required')
+              input.input100(type='password', name='password', placeholder='Password')
+              span.focus-input100
+              span.symbol-input100
+                i.fa.fa-lock(aria-hidden='true')
+            .container-login100-form-btn
+              button.login100-form-btn
+                | Login
+            .text-center.p-t-12
+              span.txt1
+                | Go back 
+              a.txt2(href='/')
+                | Home
+            .text-center.p-t-136
+              a.txt2(href='/signup')
+                | Create your Account
+                i.fa.fa-long-arrow-right.m-l-5(aria-hidden='true')
+    // ===============================================================================================
+    script(src='/Login/vendor/jquery/jquery-3.2.1.min.js')
+    // ===============================================================================================
+    script(src='/Login/vendor/bootstrap/js/popper.js')
+    script(src='/Login/vendor/bootstrap/js/bootstrap.min.js')
+    // ===============================================================================================
+    script(src='/Login/vendor/select2/select2.min.js')
+    // ===============================================================================================
+    script(src='/Login/vendor/tilt/tilt.jquery.min.js')
+    script.
+      $('.js-tilt').tilt({
+      scale: 1.1
+      })
+    // ===============================================================================================
+    script(src='/Login/js/main.js')

@@ -1,0 +1,179 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-12/512/SMS-Message-icon.png')
+    title Elite-SMS Documentation
+    link(rel='stylesheet', href='/boot/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/boot/css/animate.css')
+    link(rel='stylesheet', href='/style.css')
+    style.
+      #doclist li a
+      {
+        color:white;  
+      }
+      #doclist li
+      {
+        color:white;  
+        list-style-type:none
+      }
+        @media (max-width: 767.98px) { 
+         #sideMenu
+         {
+           display:none
+         }
+         .steps
+         {
+           display:block
+         }
+      }
+      .steps{
+        display:none
+      }
+       .navbar-brand
+       {
+         border:2px solid black;
+         color:black;
+         font-weight:bolder
+         
+       }
+       .navbar-default
+       {
+         padding-top:10px;
+         padding-bottom:10px;
+         padding-left:30px;
+        
+       }
+  body
+  
+    .container-fluid
+      nav.navbar.navbar-default.static-top
+       .container-fluid
+   
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/')  Elite-SMS
+   
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+             a(href='/') Home
+            li.steps
+              a(href="/documentation") Overview
+           
+            li.steps
+              a(href="#get-started") Get Started
+            
+            
+      
+      .col-md-12
+         
+           
+         .col-md-10#doc-content
+          #overview
+           .page-header
+             | Overview
+           p Elite-SMS is a simple platform developed to help small businesses or school institutions to connect to their clients through mobile sms. Remember the platform is free and you will only be charged by africastalking for purchasing the sender ID and for sending the messages.
+          // p The platform was developed by Phill and Evans.
+          #get-started
+           .page-header
+             | Get-started
+           p There are only two steps to get started:
+           ul
+            li
+             p 
+                a(href="/signup") Register 
+                | to Elite-SMS has a user. The registration process is simply, you will only provide your company name, your fullname, your username, your email address and your password.
+            li
+             p Elite-SMS is integrated with 
+              a(href="https://africastalking.com") africastalking 
+              | which is a telecommunications solutions provider that offers powerful mobile communication APIs.  
+             p Hence, you will need to register to africastalking sms api by simply creating an account on africastalking. 
+             p You will only need 3 things. 
+              span(style='background-color:#212529;padding:5px;color:white') Your account Username
+              |, 
+              span(style='background-color:#212529;padding:5px;color:white') your API Key
+              |&nbsp;and 
+              span(style='background-color:#212529;padding:5px;color:white') your sender ID
+              |. 
+             p Sender ID is basically your unique name like your company name which you will have to register with africastalking. 
+             p Remember your africastalking Username, API key and your Sender ID will be encrypted by our platform.
+             p Kindly follow this steps on how to get started with africastalking.
+              hr
+              ul(type='dots')
+               li
+                p Register with africastalking
+                br
+                img(src="/images/register2.png", alt="", width='80%')
+                hr
+               li
+                p Login in to your africastalking account
+                br
+                img(src="/images/login2.png", alt="", width='80%')
+                hr
+               li
+                p After logging in, you will be directed to your dashboard. Next, create a new team by clicking on new team.
+                br
+                img(src="/images/Add-new-team.png", alt="", width='80%')
+                hr
+               li
+                p Enter a new team name.
+                br
+                img(src="/images/team-name.png", alt="", width='80%')
+                hr
+               li
+                p On the next page. Create a new app by clicking on the Create App button.
+                br
+                img(src="/images/create-app.png", alt="", width='80%')
+                hr
+               li
+                p Under apps. Click on your recent created app.
+                hr
+               li
+                p You will be directed to another page. To get your api key, Go to Settings then API keys.
+                br
+                img(src="/images/settings.png", alt="", width='80%')
+                hr
+               li
+                p To generate your API key, enter your password then click on generate. Copy/Paste your API key or save it in notepad.
+                br
+                img(src="/images/generate.png", alt="", width='80%')
+                hr
+               li
+                p After getting your API Key, you will need to top up your account balance. For new accounts, africastalking gives you KSH 20. But to top up. Go to Billing then choose payment methods.
+                br
+                img(src="/images/Billing.png", alt="", width='80%')
+                hr
+               li
+                p If you are using MPESA. Follow this  steps and your account balance will be updated. Now you can start sending messages with Elite-SMS
+                br
+                img(src="/images/paybill.png", alt="", width='80%')
+                hr
+               li
+                p The final step is to get your SENDER ID. Which is a unique name. To get your sender ID, you will have to register your unique name to africastalking.
+                p Kindly follow the following instructions:
+                br
+                .jumbotron
+                 p This can be done by getting a Sender ID, it enables you to brand your messages with your Organization name. Cost is KES 7,500.00 + 16% VAT = KES 8,700.00 one off payment
+                 p Payment can be done via Mpesa Paybill 525900 account ADMIN
+
+                 p We submit sender ID applications to Safaricom on Monday's and Thursday's before noon for the ID to be ready on Tuesday's and Friday's respectively, while on the other networks it takes 7 working days.
+                 p It should not be generic and should be in-line with your services / products. If it is a product, then we need proof by sharing the trademark.
+                 p The ID has an 11 character limit. No spacing allowed but hyphens and underscores are acceptable.
+                hr
+             
+                
+        
+        
+      
+             
+   
+    script(src='./boot/js/jquery-1.12.4.min.js')
+    script(src='./boot/js/bootstrap.min.js')

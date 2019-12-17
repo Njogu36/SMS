@@ -1,0 +1,252 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', type='image/png', href='/Homepage/images/favicon.png')
+    title Elite-SMS Import Customers
+    // Custom fonts for this template
+    link(href='/vendor/fontawesome-free/css/all.min.css', rel='stylesheet', type='text/css')
+    // Page level plugin CSS
+    link(href='/vendor/datatables/dataTables.bootstrap4.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='/css/sb-admin.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css')
+    
+    style.
+      #register
+      {
+          color:white
+      }
+      .navbar-default
+      {
+        background-color:white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+      #content-wrapper
+      {
+         margin-bottom:100px;
+         margin-top:10px;
+      }
+
+  body#page-top
+    nav.navbar.navbar-expand.navbar-dark.navbar-default.static-top
+      a.navbar-brand.mr-1(href='/dashboard') 
+       img(src='/Homepage/images/logo.png', alt='alternative')
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarText', aria-controls='navbarText', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarText.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+        
+          li.nav-item.active
+           
+            a(href="/dashboard").btn.btn-info AT Balance #{user.atAmount}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+                  
+          li.nav-item
+           
+            a(href="/payments").btn.btn-success Account Balance #{amount}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+          li.nav-item
+        span(style='font-weight:bolder;margin-right:5px') #{user.companyname}
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        img(src='/images/business.png', alt='alternative',width='3%')
+    #wrapper
+      // Sidebar
+      ul.sidebar.navbar-nav
+        li.nav-item.active
+          a.nav-link(href='/dashboard')
+            i.fas.fa-home
+            &nbsp;
+            span Dashboard
+        li.nav-item.active
+          a.nav-link(href='/groups')
+            i.fas.fa-fw.fa-users
+            &nbsp;
+            span Groups
+        li.nav-item
+          a.nav-link(href='/recurrence')
+            i.fas.fa-fw.fa-clock
+            &nbsp;
+            span Recurrence
+        li.nav-item
+          a.nav-link(href='/credentials')
+            i.fas.fa-fw.fa-key
+            &nbsp;
+            span Credentials
+
+        
+        li.nav-item
+          a.nav-link(href='/templates')
+            i.fas.fa-book-open
+            &nbsp;
+            span SMS Templates
+        li.nav-item
+          a.nav-link(href='/school-exam')
+         
+            i.fab.fa-elementor
+            &nbsp;
+            span Send Exam Results
+        li.nav-item
+          a.nav-link(href='/school-balance')
+         
+            i.fas.fa-balance-scale
+            &nbsp;
+            span Send Fee Balances
+        li.nav-item
+          a.nav-link(href='/history')
+            i.fas.fa-fw.fa-history
+            &nbsp;
+            span History
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle(data-toggle='dropdown', href='#')
+            i.fas.fa-money-bill
+            &nbsp;
+            span Billing
+          .dropdown-menu
+              a.dropdown-item(href='/paymentMethods') Payment Methods
+              a.dropdown-item(href='/accountTransactions') Account Transactions
+        
+        li.nav-item
+          a#erase.nav-link(href='/dashboard-logout')
+            i.fas.fa-fw.fa-sign-out-alt
+            &nbsp;
+            span Logout
+      #content-wrapper
+        .container-fluid
+          // Breadcrumbs
+          ol.breadcrumb
+            li.breadcrumb-item
+              a(href='/groups') Groups
+            li.breadcrumb-item
+              a(href='/groupCustomer/#{group.id}') #{group.name}
+            
+            li.breadcrumb-item
+              a(href='#') Import a Customer
+            li.breadcrumb-item.active Overview
+          != messages('message', locals)
+          #customerButtons
+            .row
+              .col
+               p Kindly use this format on your .xls or .xlsx file before uploading the file.
+               p Note: Set the phone numbers to in international format
+               a(href="/Elite-SMS Import Data.xlsx",download) Download Draft
+               br
+               br
+               img(src="/images/Excel.png",width='100%', alt="")
+
+              .col
+                
+                label#jsonObject
+                .container(style='margin-top:80px')
+                  .card.card-register.mx-auto.mt-5
+                    .card-header Import customers
+                    .card-body
+    
+                            input(type="text",id='id',value=group.id,style='display:none')
+                            input#fileUploader(type='file', name='fileUploader', accept='.xls, .xlsx')
+
+                        
+                     
+                      a(href='/groupCustomer/#{group.id}')#register.btn.btn-dark.btn-block Exit
+              .col
+          // Icon Cards
+          #continue.row(style='display:none')
+            .col
+            .col(style='margin-top:180px')
+              p(style='font-weight:bolder;color:black;opacity:0.7;font-size:2.0em;text-align:center') Please log in to continue...
+            .col
+          #connection.row(style='display:none')
+            .col
+            .col(style='margin-top:180px')
+              p(style='font-weight:bolder;color:black;opacity:0.7;font-size:2.0em;text-align:center') Please connect to the internet...
+            .col
+          // Area Chart Example
+          // DataTables Example
+          // /.container-fluid
+          // Sticky Footer
+          footer.sticky-footer
+            .container.my-auto
+              .copyright.text-center.my-auto
+                span Copyright © Elite-SMS #{year}
+        // /.content-wrapper
+        // /#wrapper
+        // Scroll to Top Button
+        a.scroll-to-top.rounded(href='#page-top')
+          i.fas.fa-angle-up
+        // Logout Modal
+        #logoutModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header
+                h5#exampleModalLabel.modal-title Ready to Leave?
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+              .modal-body Select "Logout" below if you are ready to end your current session.
+              .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+                a.btn.btn-primary(href='login.html') Logout
+        // Bootstrap core JavaScript
+        script(src='/js/jquery.js')
+        script(lang="javascript",src="/js/xlsx.full.min.js")
+        script(src='/vendor/bootstrap/js/bootstrap.bundle.min.js')
+        // Core plugin JavaScript
+        script(src='/vendor/jquery-easing/jquery.easing.min.js')
+
+        // Page level plugin JavaScript
+        script(src='/vendor/chart.js/Chart.min.js')
+        script(src='/vendor/datatables/jquery.dataTables.js')
+        script(src='/vendor/datatables/dataTables.bootstrap4.js')
+        script(type='text/javascript', charset='utf8', src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js')
+
+    
+        // Custom scripts for all pages
+        script(src='/js/sb-admin.min.js')
+        // Demo scripts for this page
+        script(src='/js/demo/datatables-demo.js')
+        script(src='/js/demo/chart-area-demo.js')
+       
+        script.
+            $(document).ready(function(){
+            $("#fileUploader").change(function(evt){
+            var selectedFile = evt.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function(event) {
+            var data = event.target.result;
+            var workbook = XLSX.read(data, {
+            type: 'binary'
+            });
+            workbook.SheetNames.forEach(function(sheetName) {
+            var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+            var json_object = JSON.stringify(XL_row_object);
+            document.getElementById('jsonObject').innerHTML =' Uploading file ....'
+            const id = document.getElementById('id').value
+            fetch('/importCustomer/'+id,{
+                method:'POST',
+                headers:{
+                 'Accept': 'application/json',
+                 'Content-Type': 'application/json'
+                },
+                body:json_object
+            }).then((res)=>res.json()).
+            then((res)=>{
+                  if(res.success===true)
+              {
+              setTimeout(function(){
+                document.getElementById('jsonObject').innerHTML =' Kindly wait as we direct you to the next page...';
+                window.location.href= "/groupCustomer/"+id;
+              },2000)
+              
+              }
+            })
+            })
+            };
+            reader.onerror = function(event) {
+            console.error("File could not be read! Code " + event.target.error.code);
+            };
+            reader.readAsBinaryString(selectedFile);
+            });
+            });
+

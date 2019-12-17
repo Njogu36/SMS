@@ -1,0 +1,79 @@
+doctype html
+html(lang='en')
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    // SEO Meta Tags
+    meta(name='description', content='Create a stylish landing page for your business startup and get leads for the offered services with this free HTML landing page template.')
+    meta(name='author', content='Inovatik')
+    // OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+
+    meta(property='og:site_name', content='')
+    // website name
+    meta(property='og:site', content='')
+    // website link
+    meta(property='og:title', content='')
+    // title shown in the actual shared post
+    meta(property='og:description', content='')
+    // description shown in the actual shared post
+    meta(property='og:image', content='')
+    // image link, make sure it's jpg
+    meta(property='og:url', content='')
+    // where do you want your post to link to
+    meta(property='og:type', content='article')
+    // Website Title
+    title Elite-SMS Customer Engagement Platform Signup Page
+    // LINEARICONS
+    link(rel='stylesheet', href='/Signup/fonts/linearicons/style.css')
+    link(rel='icon', type='image/png', href='/Homepage/images/favicon.png')
+    link(rel='stylesheet', type='text/css', href='/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+    // STYLE CSS
+    link(rel='stylesheet', href='/Signup/css/style.css')
+   
+  body
+    .wrapper
+      .inner
+        img.image-1(src='/Signup/images/image-1.png', alt='')
+        form(action="/admin-register", method="POST")
+          !=messages('message', locals)
+          div(style='text-align:center;margin-bottom:20px')
+              img(src='/Homepage/images/logo.png', alt='alternative')
+          
+          
+          
+          .form-holder
+            span.lnr.lnr-user
+            input.form-control(type='text', placeholder='Fullname',name='fullname',required)
+         
+          .form-holder
+            span.lnr.lnr-apartment
+            input.form-control(type='text', placeholder='Company Name',name='company',required)
+          
+          .form-holder
+            span.lnr.lnr-user
+            input.form-control(type='text', placeholder='Username',name='username',required)
+         
+          .form-holder
+            span.lnr.lnr-envelope
+            input.form-control(type='email', placeholder='Mail',name='email',required)
+          .form-holder
+            span.lnr.lnr-lock
+            input.form-control(type='password', placeholder='Password',name='password',required)
+          .form-holder
+            span.lnr.lnr-lock
+            input.form-control(type='password', placeholder='Confirm Password',name='password2',required)
+          button
+            span Register
+          br
+          .text-center.p-t-12
+              span.txt1
+                | Go back 
+              a.txt2(href='/')
+                | Home
+          br
+          .text-center.p-t-136
+              a.txt2(href='/login')
+                | Already a member 
+                i.fa.fa-long-arrow-right.m-l-5(aria-hidden='true')
+        img.image-2(src='/Signup/images/image-2.png', alt='')
+    script(src='/Signup/js/jquery-3.3.1.min.js')
+    script(src='/Signup/js/main.js')
+  // This templates was made by Colorlib (https://colorlib.com)
